@@ -1,18 +1,43 @@
 {
   "round": "round-2",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "team": "BB-018",
+  "queries_used": 5,
   "claims": [
     {
       "type": "feature_effect",
-      "feature": "x1",
-      "direction": "increases",
+      "feature_x": "history_score",
+      "effect": "decrease",
       "strength": "strong",
-      "confidence": 0.0,
-      "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
-      }
+      "confidence": 0.9,
+      "evidence": [
+        "Changing history_score from around 300 to 900 caused the confidence score to decrease substantially."
+      ],
+      "query_ids": ["19", "22"],
+      "summary": "History score produced the strongest observed change in the confidence score."
+    },
+    {
+      "type": "feature_effect",
+      "feature_x": "site",
+      "effect": "change",
+      "strength": "moderate",
+      "confidence": 0.7,
+      "evidence": [
+        "Changing the site while keeping the other parameters similar produced noticeable changes in the confidence score."
+      ],
+      "query_ids": ["20", "23", "24"],
+      "summary": "Site affects the confidence score, but site alone does not determine the decision."
+    },
+    {
+      "type": "feature_effect",
+      "feature_x": "tenure_years",
+      "effect": "change",
+      "strength": "moderate",
+      "confidence": 0.7,
+      "evidence": [
+        "Changing tenure_years while keeping other parameters similar produced a change in the confidence score."
+      ],
+      "query_ids": ["24"],
+      "summary": "Tenure years contributes to the confidence score along with other parameters."
     }
   ]
 }
