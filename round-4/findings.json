@@ -1,17 +1,24 @@
 {
   "round": "round-4",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "team": "BB-018",
+  "system": "GK-05",
+  "final_model": "HistGradientBoosting",
   "claims": [
     {
-      "type": "feature_effect",
-      "feature": "x1",
-      "direction": "increases",
-      "strength": "strong",
-      "confidence": 0.0,
+      "type": "model_selection",
+      "confidence": "medium",
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "summary": "HistGradientBoosting selected based on achieving the lowest cross-validated error metrics and generating the only positive R2 score among all compared regressors.",
+        "cv_mae": 0.17867,
+        "cv_rmse": 0.21473,
+        "cv_r2": 0.03529
+      }
+    },
+    {
+      "type": "decision_rule",
+      "confidence": "low",
+      "evidence": {
+        "summary": "Provisional surrogate decision cutoff set at 0.5. The active training subset contained insufficient binary diversity to resolve the true hidden decision boundary."
       }
     }
   ]
