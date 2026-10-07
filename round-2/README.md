@@ -1,35 +1,43 @@
-# round-2 — Investigate
+# Round 2 — Investigate
 
-Go past surface behaviour into the pipeline.
+## Team
 
-By now several different explanations probably fit everything you have seen. The round
-is not asking you to pick your favourite — it is asking you to design the query that
-tells them apart. That is where the marks are.
+Team ID: BB-018
 
-Worth probing: inputs that are transformed before the model sees them, inputs that are
-combined with each other, inputs that are silently dropped, and structure that only
-appears when you vary two things at once.
+## Hypothesis
 
-Record the hypotheses you **rejected**. They count.
+The confidence score is influenced by multiple input parameters, and changing individual parameters while keeping the others approximately constant can reveal their relationships with the model's confidence score.
 
-## What to submit
+## Experiments
 
-| File | Purpose |
-|---|---|
-| `findings.json` | Your claims, in structured form. Judges check each one. |
-| `report.md` | The reasoning behind the claims. Read by judges. |
-| `experiments/` | Scripts and query logs |
-| `plots/` | Anything visual that supports a claim |
+We investigated the effect of different parameters on the confidence score by changing one parameter at a time while keeping the other parameters approximately constant.
 
-Validate before you open the PR:
+### Site
 
-```bash
-python tools/validate.py round-2
-```
+Changing the site produced noticeable changes in the confidence score. This suggests that site has a moderate influence, but site alone does not determine the final decision.
 
-Then open a pull request **from your fork to this repository**, titled
-`[BB-XXX] Round 2 — Investigate` with your own Team ID in place of `BB-XXX`.
+### Tenure Years
 
-**The pull request is your submission.** Open it before the organisers end the round.
-Judges mark the commit it is at when the round ends; anything pushed afterwards is not
-marked.
+Changing tenure years also produced changes in the confidence score. The effect was moderate and appeared to contribute along with other parameters.
+
+### History Score
+
+History score produced the strongest observed change in the confidence score among the parameters tested. This suggests that historical information has a stronger influence on the model output.
+
+## What We Concluded
+
+The confidence score appears to depend on a combination of parameters rather than a single input. History score showed the strongest observed effect, while site and tenure years also affected the confidence score.
+
+## What We Ruled Out
+
+- The confidence score is not controlled by only one parameter.
+- Changing tenure years alone does not completely determine the decision.
+- A single observed change is not sufficient to explain the entire model behaviour.
+
+## What We Are Still Unsure About
+
+The exact mathematical relationship between the parameters and the confidence score is still unknown. More controlled experiments would be required to determine interactions between parameters.
+
+## Evidence
+
+The supporting experiments, findings, report, and plots are included in this Round 2 submission.
